@@ -19,14 +19,12 @@ ActiveRecord::Schema.define(version: 2022_01_25_151547) do
     t.string "title"
     t.string "author"
     t.string "cover_img"
-    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -6,11 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-book1 = Book.create(
-    title: "Sandwich Artistry",
-    author: "Big Brian Subway",
-    cover_img: "https://robohash.org/voluptasquisnihil.png?size=300x300&set=set1",
-    description: "A book about sandwich artistry"
-)
+puts "📃 Seeding data..."
 
-puts "done seeding"
+50.times do
+    book = Book.create(
+        title: Faker::Book.unique.title,
+        author: Faker::Book.author,
+        cover_img: Faker::LoremFlickr.image(size: "150x160", search_terms: ['book', 'covers'])
+    )
+end
+
+5.times do
+    user = User.create(username: Faker::Ancient.hero.downcase.gsub(/\W/, '_'))
+
+    rand(3..8).times do
+        user.users_books.create(
+            book_id: rand(1..50),
+            read: Faker::Boolean.boolean(true_ratio: 0.2)
+        )
+    end
+end
+
+
+puts "✅ done seeding!"
