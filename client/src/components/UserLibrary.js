@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import Book from "./Book"
 
 
-function UserLibrary( { user }) {
-    const [userLibrary, setUserLibrary] = useState([])
+function UserLibrary( { user, books, onRemoveBook }) {
+    // const [userLibrary, setUserLibrary] = useState([])
 
-    useEffect(() => {
-        if (user === null) {
-            return (
-                setUserLibrary([])
-            )
-        }
-        fetch("/books")
-        .then(response => response.json())
-        .then(books => setUserLibrary(books.filter(book => book.user_id === user.id)))
+    // useEffect(() => {
+    //      setUserLibrary(books.filter(book => book.user_id === user.id))
+    //     }, [])
 
-    }, [])
-
-    console.log(user)
-
-    console.log(userLibrary)
-    
-    const renderLibrary = userLibrary.map((book) => <Book key={book.id} book={book} />)
+   
+    // setUserLibrary(books.filter(book => book.user_id === user.id))
+    const renderLibrary = books.filter(book => book.user_id === user.id).map((book) => <Book key={book.id} book={book} onRemoveBook={onRemoveBook}/>)
 
     return (
         <div>

@@ -25,14 +25,6 @@ puts "📃 Seeding data..."
 
 end
 
-# 50.times do
-#     book = Book.create(
-#         title: Faker::Book.title,
-#         author: Faker::Book.author,
-#         cover_img: Faker::LoremFlickr.image(size: "150x160", search_terms: ['book', 'covers']),
-#         read: Faker::Boolean.boolean(true_ratio: 0.2),
-#         user_id: rand(1..5)
-#     )
-# end
+
 
 puts "✅ done seeding!"

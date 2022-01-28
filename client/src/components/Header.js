@@ -19,6 +19,7 @@ function Header({ user, onLogout }) {
           <button onClick={handleLogout}>Logout</button>
           </Link>
           <Link to="/library">Go to my library</Link>
+          <Link to="/add_book">Add a book</Link>
         </div>
       ) : (
           <div>
