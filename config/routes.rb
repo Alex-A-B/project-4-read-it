@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   resources :books
-  # resources :users_books
+  
 
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

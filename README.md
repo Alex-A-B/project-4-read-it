@@ -9,6 +9,7 @@ Currently at MVP state.
 - View your personal library.
 - Add new books to your library.
 - Mark which books you have read.
+- Remove books from your library.
 - Authorization and validation required to interact with DB.
 
 
