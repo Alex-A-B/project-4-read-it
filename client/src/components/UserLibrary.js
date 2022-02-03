@@ -1,16 +1,11 @@
-// import { useEffect, useState } from "react"
+
 import Book from "./Book"
 
 
 function UserLibrary( { user, books, onRemoveBook }) {
-    // const [userLibrary, setUserLibrary] = useState([])
 
-    // useEffect(() => {
-    //      setUserLibrary(books.filter(book => book.user_id === user.id))
-    //     }, [])
 
-   
-    // setUserLibrary(books.filter(book => book.user_id === user.id))
+    // needs an IF to stop the react error 
     const renderLibrary = books.filter(book => book.user_id === user.id).map((book) => <Book key={book.id} book={book} onRemoveBook={onRemoveBook}/>)
 
     return (
