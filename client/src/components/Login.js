@@ -4,11 +4,6 @@ function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("")
 
-  const formValues = {
-    username: username,
-    password: password
- }
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -16,10 +11,12 @@ function Login({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ formValues }),
+      body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => onLogin(user))
+        setUsername("")
+        setPassword("")
       }
     });
   }

@@ -23,7 +23,6 @@ function AddNewUser ( { onAddUser }) {
               if (response.ok) {
                   response.json()
           .then((newUser) => onAddUser(newUser))
-          .catch((error) => console.log(error))
           setUsername("")
           setPassword("")
               }
