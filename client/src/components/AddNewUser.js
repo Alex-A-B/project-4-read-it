@@ -19,23 +19,29 @@ function AddNewUser ( { onAddUser }) {
           },
           body: JSON.stringify(formValues),
         })
-          .then((response) => response.json())
-          .then((newUser) => onAddUser(newUser));
+          .then((response) => {
+              if (response.ok) {
+                  response.json()
+          .then((newUser) => onAddUser(newUser))
+          .catch((error) => console.log(error))
           setUsername("")
           setPassword("")
-          
+              }
+            })
       }
 
     return (
         <div>
             <h5>Create a new user:</h5>
             <form onSubmit={handleSubmit}>
+            <label htmlFor="username">Username: </label>
             <input
                value={username}
                 onChange={e => setUsername(e.target.value)}
                 placeholder="Choose a username"
                 required
             />
+            <label htmlFor="password">Password: </label>
             <input
                value={password}
                 onChange={e => setPassword(e.target.value)}

@@ -50,7 +50,7 @@ function App() {
         <Route exact path="/login" element={<Login onLogin={handleLogin} />} />
         <Route exact path="/library" element={<UserLibrary user={user} books={books} onRemoveBook={handleRemoveBook} />} />
         <Route exact path="/add_book" element={<AddBookForm user={user} onAddBook={handleAddBook} />} />
-        <Route exact path="/create_user" element={<AddNewUser onAddUser={handleLogin} />} />
+        <Route exact path="/create_user" element={<AddNewUser onAddUser={setUser} />} />
         <Route exact path="/" element={<Home />}  />
       </Routes>
     </div>

@@ -24,7 +24,10 @@ function Header({ user, onLogout }) {
       ) : (
           <div>
             <Link to="/login">
-                <button>Click Here to Login</button>
+                <button>Click here to Login</button>
+            </Link>
+            <Link to="/create_user">
+                <button>Create new User</button>
             </Link>
             <p>Welcome to Read it! </p>
             <p>Please login to view your library!</p>
